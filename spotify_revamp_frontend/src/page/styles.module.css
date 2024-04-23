@@ -1,0 +1,45 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 0 0 0 10px; /* Rounds only the top-left and bottom-left corners */
+}
+
+.board {
+    position: relative;
+    width: 2000px;
+    height: 2000px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, #1e1616 0.5px, rgba(255, 255, 255, 0) 0.5px);
+    cursor: grab;
+}
+
+.boardDragging {
+    position: relative;
+    width: 2000px;
+    height: 2000px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, #000 0.5px, rgba(255, 255, 255, 0) 0.5px);
+    cursor: grabbing;
+}
+
+.boardDarkmode {
+    position: relative;
+    width: 2000px;
+    height: 1500px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, #222 1px);
+    background-color: #ffffff; /* Dark gray, softer than black */
+    cursor: grab;
+}
+
+.boardDragging-darkmode {
+    position: relative;
+    width: 2000px;
+    height: 1500px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, #222 1px);
+    background-color: #222; /* Ensure background color is consistent */
+    cursor: grabbing;
+}
