@@ -140,7 +140,32 @@ const Playground: React.FC = () => {
                         )
                     );
 
-
+                    const node = nodes.find((node) => node.id === selectedNode);
+                    if (node && node.inputEdgeIds) {
+                        console.log(node.inputEdgeIds);
+                        for (let i = 0; i < node.inputEdgeIds.length; i++) {
+                            const edgeId = node.inputEdgeIds[i];
+                            const edge = edges.find((edge) => edge.id === edgeId); // Assuming edges is an array
+                            console.log(edge?.currEndPosition.x, edge?.currEndPosition.y);
+                            if (edge) {
+                                edge.currEndPosition.x = node.currPosition.x;
+                                edge.currEndPosition.y = node.currPosition.y;
+                            }
+                        }
+                    }
+                    
+                    if (node && node.outputEdgeIDs) {
+                        console.log(node.outputEdgeIDs);
+                        for (let i = 0; i < node.outputEdgeIDs.length; i++) {
+                            const edgeId = node.outputEdgeIDs[i];
+                            const edge = edges.find((edge) => edge.id === edgeId); // Assuming edges is an array
+                            console.log(edge?.currEndPosition.x, edge?.currEndPosition.y);
+                            if (edge) {
+                                edge.currStartPosition.x = node.currPosition.x;
+                                edge.currStartPosition.y = node.currPosition.y;
+                            }
+                        }
+                    }         
                 } else {
                     const newX = (event.clientX) - dragOrigin.current.x;
                     const newY = (event.clientY) - dragOrigin.current.y;
@@ -194,6 +219,7 @@ const Playground: React.FC = () => {
                 
                 const nodeStart = nodes.find(node => node.id === nodeStartId);
                 const nodeEnd = nodes.find(node => node.id === nodeEndId);
+                console.log(nodeStart, nodeEnd);
 
                 const boardWrapperElement = document.getElementById("boardWrapper");
   
